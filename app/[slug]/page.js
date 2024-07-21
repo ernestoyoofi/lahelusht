@@ -21,8 +21,8 @@ async function LoadCommentPost(id) {
   }
 }
 
-export default async function RedirectlyContent({ searchParams }) {
-  const listPost = await (searchParams.p? GetPostView:GetRandomPost)(searchParams.p)
+export default async function RedirectlyContent({ params }) {
+  const listPost = await GetPostView(params.slug)
 
   return <div>
     <ContainContent data={listPost} loadNew={NewLoadPost} loadComment={LoadCommentPost}/>
